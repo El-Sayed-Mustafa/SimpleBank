@@ -5,16 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplebank.R
 import com.example.simplebank.databinding.FragmentHomeBinding
 import com.example.simplebank.db.UserDatabase
 import com.example.simplebank.db.UserRepo
-import com.example.simplebank.ui.notifications.NotificationsViewModel
 
 class HomeFragment : Fragment() {
 
@@ -48,13 +47,17 @@ class HomeFragment : Fragment() {
 
         binding.viewModel = homeViewModel
         binding.lifecycleOwner = this
-        displayUsersList()
+        initRecyclerView()
         return binding.root
     }
 
+    private fun initRecyclerView(){
+        binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
+        displayUsersList()
+    }
     private fun displayUsersList() {
         homeViewModel.users.observe(viewLifecycleOwner, Observer {
-            Log.i("MyTag", it.toString())
+            binding.recyclerView.adapter = Adapter(it)
         })
     }
 

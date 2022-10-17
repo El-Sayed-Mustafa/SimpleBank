@@ -4,57 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-            <variable
-                name="viewModel"
-                type="com.example.simplebank.ui.home.HomeViewModel" />
-
+        <variable
+            name="viewModel"
+            type="com.example.simplebank.ui.home.HomeViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="match_parent"
+        android:background="#22222e"
+        android:padding="30dp">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="10"
+            android:layout_marginBottom="25dp"
+            android:text="Welcome"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            android:inputType="textPersonName"
-            android:text="@={viewModel.inputName}" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="350dp"
+            android:layout_height="424dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginBottom="24dp"
+            android:background="#242632"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView2"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <EditText
-            android:id="@+id/etAccountNum"
-            android:layout_width="match_parent"
-
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="193dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:text="@={viewModel.inputAccountNum}" />
-
-        <EditText
-            android:id="@+id/etBalance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:text="@={viewModel.inputBalance}"
-            android:inputType="number" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/save"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="@{()->viewModel.save()}"
-                android:text="Save" />
-
-
-        </LinearLayout>
-
-    </LinearLayout>
+            android:layout_marginBottom="16dp"
+            android:text="Dashboard"
+            android:textColor="#EDEDED"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.126" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

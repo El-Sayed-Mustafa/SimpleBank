@@ -1,4 +1,4 @@
-package com.example.simplebank.ui.notifications
+package com.example.simplebank.ui.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
