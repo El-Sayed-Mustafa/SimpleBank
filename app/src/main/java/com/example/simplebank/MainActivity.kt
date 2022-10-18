@@ -1,6 +1,7 @@
 package com.example.simplebank
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -9,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.simplebank.databinding.ActivityMainBinding
+import com.example.simplebank.ui.home.CustomDialogFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
       binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+
 
         val navView: BottomNavigationView = binding.navView
 
@@ -32,5 +35,10 @@ class MainActivity : AppCompatActivity() {
         if (getSupportActionBar() != null) {
             getSupportActionBar()?.hide()
         }
+
+
+    }
+    private fun ahmed (){
+
     }
 }

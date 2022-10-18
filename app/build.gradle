@@ -6,7 +6,7 @@ apply plugin : 'kotlin-kapt'
 
 android {
     namespace 'com.example.simplebank'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.simplebank"
@@ -40,6 +40,15 @@ android {
 }
 
 dependencies {
+
+    //Material Dialog
+    def materialDialog_version = "3.3.0"
+    implementation "com.afollestad.material-dialogs:core:$materialDialog_version"
+    implementation "com.afollestad.material-dialogs:bottomsheets:$materialDialog_version"
+    implementation "com.afollestad.material-dialogs:input:$materialDialog_version"
+    implementation "com.afollestad.material-dialogs:color:$materialDialog_version"
+    implementation "com.afollestad.material-dialogs:lifecycle:$materialDialog_version"
+
     def lifecycle_version = "2.6.0-alpha02"
     def room_version = "2.4.3"
 

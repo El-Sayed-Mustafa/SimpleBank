@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_navigation_history"
             app:destination="@id/navigation_history" />
+        <action
+            android:id="@+id/action_navigation_home_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
 
     <fragment
@@ -22,6 +25,14 @@
         tools:layout="@layout/fragment_notifications" >
         <action
             android:id="@+id/action_navigation_history_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/dialogFragment"
+        android:name="com.example.simplebank.ui.home.DialogFragment"
+        android:label="DialogFragment" >
+        <action
+            android:id="@+id/action_dialogFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
 </navigation>
