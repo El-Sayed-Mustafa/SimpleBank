@@ -13,6 +13,7 @@
         android:top="2dp"
         android:bottom="2dp"/>
 
-    <solid android:color="#1E1E29"/>
+
+    <solid android:color="#4E0303"/>
 
 </shape>

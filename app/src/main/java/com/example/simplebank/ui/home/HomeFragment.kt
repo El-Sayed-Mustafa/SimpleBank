@@ -15,6 +15,7 @@ import com.example.simplebank.databinding.FragmentHomeBinding
 import com.example.simplebank.db.User
 import com.example.simplebank.db.UserDatabase
 import com.example.simplebank.db.UserRepo
+import com.example.simplebank.ui.Dialog.CustomDialogFragment
 
 class HomeFragment : Fragment() {
 
@@ -66,11 +67,10 @@ class HomeFragment : Fragment() {
         })
     }
 
+
     private fun listItemClicked(user: User){
 
-        Toast.makeText(this.context ,"dfs",Toast.LENGTH_SHORT).show()
-
-        CustomDialogFragment().show(childFragmentManager,CustomDialogFragment.TAG)
+        CustomDialogFragment(user).show(childFragmentManager, CustomDialogFragment.TAG)
 
     }
 

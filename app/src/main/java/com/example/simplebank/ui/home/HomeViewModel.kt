@@ -15,27 +15,8 @@ class HomeViewModel (private val repo: UserRepo):ViewModel() {
 
     val users = repo.users
 
-    val inputName =MutableLiveData<String>()
-    val inputAccountNum = MutableLiveData<String>()
-    val inputBalance = MutableLiveData<String>()
-
-
-
-    fun save(){
-
-        val name = inputName.value!!
-        val accountNum = inputAccountNum.value!!
-        val balance = inputBalance.value!!
-
-        insertUser(User(0,name,accountNum,balance))
-
-        inputAccountNum.value = ""
-        inputBalance.value=""
-        inputName.value=""
-    }
-
-    fun insertUser(user: User) = viewModelScope.launch(Dispatchers.IO){
-        repo.insert(user)
+    fun getUser(name: String) = viewModelScope.launch(Dispatchers.IO){
+        repo.user(name)
     }
 
 }

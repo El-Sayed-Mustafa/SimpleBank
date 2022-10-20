@@ -8,4 +8,10 @@ class UserRepo(private val userDao: UserDao) {
         userDao.insertUser(user)
     }
 
+    val user = fun(name:String){
+        userDao.getUser(name)
+    }
+
+
+
 }

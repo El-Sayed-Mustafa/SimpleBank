@@ -37,26 +37,11 @@ class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(bindi
         binding.accountNum.text = user.accountNum
         binding.balance.text = user.balance
         binding.root.setOnClickListener {
-//            showDialog("Transaction","Save",
-//                null,"cancel",null)
 
             clickListener(user)
         }
     }
 
-    fun showDialog(
-        message:String?=null,
-        posButton:String?=null,
-        posButtonAction:DialogInterface.OnClickListener?=null,
-        negButtonName:String?=null,
-        negButtonAction: DialogInterface.OnClickListener?=null
-    ){
-        val dialog = AlertDialog.Builder(binding.root.context)
-            .setMessage(message)
-            .setPositiveButton(posButton,posButtonAction)
-            .setNegativeButton(negButtonName,negButtonAction)
-        dialog.show()
-    }
 }
 
 class UserDiffCallBack : DiffUtil.ItemCallback<User>() {

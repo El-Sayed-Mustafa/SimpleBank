@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">SimpleBank</string>
     <string name="title_home">Home</string>
+    <string-array name="users">
+        <item>Ahmed Ashraf</item>
+        <item>Elsayed Mustafa</item>
+        <item>Hossam Mostafa</item>
+        <item>Hussien Ali</item>
+        <item>Kareem Anwar</item>
+        <item>Khalid Ismail</item>
+        <item>Mohamed Amer</item>
+        <item>Mohamed Osama</item>
+        <item>Youssef Amer</item>
+        <item>Zeyad Gamal</item>
+    </string-array>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <!-- TODO: Remove or change this placeholder text -->
