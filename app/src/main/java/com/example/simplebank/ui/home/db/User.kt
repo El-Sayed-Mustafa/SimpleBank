@@ -1,4 +1,4 @@
-package com.example.simplebank.db
+package com.example.simplebank.ui.home.db
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

@@ -1,10 +1,12 @@
 package com.example.simplebank.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -12,15 +14,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplebank.R
 import com.example.simplebank.databinding.FragmentHomeBinding
-import com.example.simplebank.db.User
-import com.example.simplebank.db.UserDatabase
-import com.example.simplebank.db.UserRepo
+import com.example.simplebank.ui.home.db.User
+import com.example.simplebank.ui.home.db.UserDatabase
+import com.example.simplebank.ui.home.db.UserRepo
 import com.example.simplebank.ui.Dialog.CustomDialogFragment
 
 class HomeFragment : Fragment() {
 
 
-    private lateinit var homeViewModel:HomeViewModel
+        private lateinit var homeViewModel:HomeViewModel
     private lateinit var binding: FragmentHomeBinding
 
 
@@ -73,5 +75,4 @@ class HomeFragment : Fragment() {
         CustomDialogFragment(user).show(childFragmentManager, CustomDialogFragment.TAG)
 
     }
-
 }

@@ -1,4 +1,6 @@
-package com.example.simplebank.db
+package com.example.simplebank.ui.home.db
+
+import androidx.lifecycle.LiveData
 
 class UserRepo(private val userDao: UserDao) {
 
@@ -8,9 +10,10 @@ class UserRepo(private val userDao: UserDao) {
         userDao.insertUser(user)
     }
 
-    val user = fun(name:String){
-        userDao.getUser(name)
+    fun getUser(name: String): User {
+        return userDao.getUser(name)
     }
+
 
 
 

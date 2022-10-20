@@ -6,17 +6,24 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.simplebank.db.User
-import com.example.simplebank.db.UserRepo
+import com.example.simplebank.ui.home.db.User
+import com.example.simplebank.ui.home.db.UserRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeViewModel (private val repo: UserRepo):ViewModel() {
 
+
     val users = repo.users
 
-    fun getUser(name: String) = viewModelScope.launch(Dispatchers.IO){
-        repo.user(name)
+    fun insertUser(user: User) = viewModelScope.launch(Dispatchers.IO){
+        repo.insert(user)
+    }
+    suspend fun getUser(name: String): User {
+            return withContext(Dispatchers.IO){
+                repo.getUser(name)
+            } ?: User(0, "", "", "")
     }
 
 }

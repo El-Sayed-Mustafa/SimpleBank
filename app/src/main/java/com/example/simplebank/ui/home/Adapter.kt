@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.simplebank.R
 import com.example.simplebank.databinding.ListItemBinding
 //import com.example.simplebank.databinding.ListItemBinding
-import com.example.simplebank.db.User
+import com.example.simplebank.ui.home.db.User
 
 class Adapter(private val clickListener: (User)->Unit) : ListAdapter<User, MyViewHolder>(UserDiffCallBack()) {
 
@@ -32,7 +32,7 @@ class Adapter(private val clickListener: (User)->Unit) : ListAdapter<User, MyVie
 
 class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(user: User,clickListener: (User) -> Unit) {
+    fun bind(user: User, clickListener: (User) -> Unit) {
         binding.name.text = user.name
         binding.accountNum.text = user.accountNum
         binding.balance.text = user.balance

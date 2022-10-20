@@ -8,7 +8,7 @@
 
         <variable
             name="user"
-            type="com.example.simplebank.db.User" />
+            type="com.example.simplebank.ui.home.db.User" />
         
 
     </data>

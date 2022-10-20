@@ -8,41 +8,43 @@
     </data>
 
     <FrameLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_dialog">
 
         <androidx.cardview.widget.CardView
             style="@style/MyCardView"
-            android:layout_width="362dp"
-            android:layout_height="296dp"
+            android:layout_width="match_parent"
+            android:layout_height="402dp"
             app:cardBackgroundColor="#22222e">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="395dp"
+                android:layout_height="384dp">
 
                 <TextView
                     android:id="@+id/from"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
                     android:text="From"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.113"
+                    app:layout_constraintHorizontal_bias="0.112"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.174" />
+                    app:layout_constraintVertical_bias="0.294" />
 
                 <TextView
                     android:id="@+id/to"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
+                    android:layout_marginTop="50dp"
                     android:layout_marginBottom="5dp"
                     android:text="To"
                     android:textColor="#FFFAFA"
@@ -50,10 +52,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.102"
+                    app:layout_constraintHorizontal_bias="0.097"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.442" />
+                    app:layout_constraintVertical_bias="0.492" />
 
                 <Button
                     android:id="@+id/cancel_button"
@@ -62,61 +64,68 @@
                     android:background="@drawable/button"
                     android:text="Cancel"
                     android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.215"
+                    app:layout_constraintHorizontal_bias="0.204"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.935" />
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <Button
                     android:id="@+id/confirm_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
                     android:background="@drawable/button"
-                    android:text="Comfirm"
+                    android:text="Confirm"
                     android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.801"
+                    app:layout_constraintHorizontal_bias="0.655"
                     app:layout_constraintStart_toStartOf="@+id/cancel_button" />
 
                 <Spinner
                     android:id="@+id/spinnerUsers"
                     android:layout_width="208dp"
                     android:layout_height="42dp"
-                    android:layout_marginEnd="3dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="16dp"
 
+                    android:layout_marginBottom="16dp"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_bias="0.929"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.487" />
+                    app:layout_constraintVertical_bias="0.524" />
 
                 <TextView
                     android:id="@+id/from_user"
                     android:layout_width="185dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="5dp"
                     android:text="User"
                     android:textColor="#FBF1F1"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.836"
+                    app:layout_constraintHorizontal_bias="0.685"
                     app:layout_constraintStart_toEndOf="@+id/from"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.178" />
+                    app:layout_constraintVertical_bias="0.294" />
 
                 <TextView
                     android:id="@+id/amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
+                    android:layout_marginBottom="8dp"
                     android:text="Amount"
                     android:textColor="#F1EBEB"
                     android:textSize="20sp"
@@ -125,25 +134,25 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.12"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/to"
-                    app:layout_constraintVertical_bias="0.021" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.707" />
 
                 <EditText
-                    android:id="@+id/editTextNumber"
+                    android:id="@+id/amount_transfer"
                     android:layout_width="140dp"
                     android:layout_height="39dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="16dp"
                     android:ems="10"
                     android:inputType="number"
                     android:textColor="#FFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.679"
+                    app:layout_constraintHorizontal_bias="0.643"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.662" />
+                    app:layout_constraintVertical_bias="0.729" />
 
                 <TextView
                     android:id="@+id/textView8"
@@ -155,10 +164,28 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.068"
-                    app:layout_constraintStart_toEndOf="@+id/editTextNumber"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/amount_transfer"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.657" />
+                    app:layout_constraintVertical_bias="0.717" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="238dp"
+                    android:layout_height="68dp"
+                    android:background="@drawable/title"
+                    android:fontFamily="@font/abril_fatface"
+                    android:paddingStart="20dp"
+                    android:text="Transaction"
+                    android:textColor="#423A59"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.388"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.054" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </FrameLayout>

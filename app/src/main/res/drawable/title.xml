@@ -8,11 +8,11 @@
         android:radius="30dp" />
 
     <padding
-        android:left="2dp"
-        android:right="2dp"
-        android:top="2dp"
+        android:left="10dp"
+        android:right="10dp"
+        android:top="10dp"
         android:bottom="2dp"/>
 
-    <solid android:color="#1E1E29"/>
+    <solid android:color="#FFFFFF"/>
 
 </shape>
