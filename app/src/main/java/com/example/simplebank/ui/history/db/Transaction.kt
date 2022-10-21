@@ -11,4 +11,6 @@ data class Transaction(
     var receiver: String,
     var amount: String,
     var currentTime: String,
+    var senderBalance:String,
+    var receiverBalance:String
 )

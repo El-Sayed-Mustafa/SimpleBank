@@ -15,11 +15,10 @@ import com.example.simplebank.ui.history.db.TransactionDatabase
 import com.example.simplebank.ui.history.db.TransactionRepo
 
 
-class HistoryFragment : Fragment() {
+class HistoryFragment() : Fragment() {
 
     private lateinit var historyViewModel: HistoryViewModel
     private lateinit var binding: FragmentHistoryBinding
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,7 +40,6 @@ class HistoryFragment : Fragment() {
 
         historyViewModel= ViewModelProvider(this, factory)[HistoryViewModel::class.java]
 
-
         binding.viewModel = historyViewModel
         binding.lifecycleOwner = this
         initRecyclerView()
@@ -50,7 +48,8 @@ class HistoryFragment : Fragment() {
 
 
     private fun initRecyclerView(){
-        binding.recyclerView2.layoutManager = LinearLayoutManager(this.context)
+        binding.recyclerView2.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, true)
+
         displayUsersList()
     }
     private fun displayUsersList() {

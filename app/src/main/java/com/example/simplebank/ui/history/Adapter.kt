@@ -33,7 +33,24 @@ class MyViewHolder(val binding: ListItemHistoryBinding) : RecyclerView.ViewHolde
         binding.tvSender.text = transaction.sender
         binding.tvReceiver.text = transaction.receiver
         binding.tvTime.text = transaction.currentTime
+        binding.tvAmountSender.text = "-${transaction.amount}"
+
         binding.tvAmount.text = transaction.amount
+        binding.tvSenderBefore.text=transaction.senderBalance
+        binding.tvReceiverBefore.text = transaction.receiverBalance
+        val SenderBalanceAfter = transaction.senderBalance.toFloat()-transaction.amount.toFloat()
+        val senderBalance = SenderBalanceAfter
+        binding.tvSenderAfter.text = senderBalance.toString()
+
+
+        binding.tvReceiverAmount.text = "+${transaction.amount}"
+
+        val ReceiverBalanceAfter = transaction.receiverBalance.toFloat()+transaction.amount.toFloat()
+        val receiverBalance = ReceiverBalanceAfter
+
+        binding.tvReceiverAfter.text = receiverBalance.toString()
+
+
     }
 
 }

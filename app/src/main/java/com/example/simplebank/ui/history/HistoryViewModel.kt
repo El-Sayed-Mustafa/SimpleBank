@@ -15,5 +15,4 @@ class HistoryViewModel(private val repo: TransactionRepo) : ViewModel() {
         repo.insert(transaction)
     }
 
-
 }

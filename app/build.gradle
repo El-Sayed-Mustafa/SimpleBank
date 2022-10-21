@@ -40,6 +40,10 @@ android {
 }
 
 dependencies {
+    def fragment_version = "1.5.3"
+
+
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
     //Material Dialog
     def materialDialog_version = "3.3.0"

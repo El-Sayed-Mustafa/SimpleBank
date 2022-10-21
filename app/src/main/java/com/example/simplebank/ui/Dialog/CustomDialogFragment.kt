@@ -21,6 +21,12 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.simplebank.R
 import com.example.simplebank.databinding.FragmentDialogBinding
+import com.example.simplebank.ui.history.HistoryFragment
+import com.example.simplebank.ui.history.HistoryViewModel
+import com.example.simplebank.ui.history.HistoryViewModelFactory
+import com.example.simplebank.ui.history.db.Transaction
+import com.example.simplebank.ui.history.db.TransactionDatabase
+import com.example.simplebank.ui.history.db.TransactionRepo
 import com.example.simplebank.ui.home.db.User
 import com.example.simplebank.ui.home.db.UserDatabase
 import com.example.simplebank.ui.home.db.UserRepo
@@ -29,12 +35,17 @@ import com.example.simplebank.ui.home.UserViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class CustomDialogFragment(private val fromUser: User) : DialogFragment(), OnItemSelectedListener {
 
-
+    private lateinit var historyViewModel: HistoryViewModel
     private lateinit var binding: FragmentDialogBinding
     private lateinit var homeViewModel: HomeViewModel
+
+    var transaction = Transaction(0, "", "", "", "", "", "")
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -59,6 +70,17 @@ class CustomDialogFragment(private val fromUser: User) : DialogFragment(), OnIte
         homeViewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
         binding.lifecycleOwner = this
+
+
+        val applicationHistory = requireNotNull(this.activity).application
+
+        val daoHistory = TransactionDatabase.getInstance(applicationHistory).transactionDao
+        val repoHistory = TransactionRepo(daoHistory)
+        val factoryHistory = HistoryViewModelFactory(repoHistory)
+
+        historyViewModel = ViewModelProvider(this, factoryHistory)[HistoryViewModel::class.java]
+
+
         binding.cancelButton.setOnClickListener {
             dismiss()
         }
@@ -121,12 +143,17 @@ class CustomDialogFragment(private val fromUser: User) : DialogFragment(), OnIte
                         "Please Enter amount money",
                         Toast.LENGTH_SHORT)
                         .show()
-                } else if (toUser.id == fromUser.id) {
+                }
+                if (toUser.id == fromUser.id) {
                     Toast.makeText(requireContext(),
                         "You can't make transfer money for the same user",
                         Toast.LENGTH_SHORT)
                         .show()
-                } else {
+                }
+                if (toUser.id != fromUser.id && balance.isNotEmpty()) {
+                    transaction.receiverBalance = toUser.balance
+                    transaction.senderBalance = fromUser.balance
+
                     var Sender = fromUser.balance.toFloat()
                     Sender -= balance.toFloat()
                     fromUser.balance = Sender.toString()
@@ -142,6 +169,18 @@ class CustomDialogFragment(private val fromUser: User) : DialogFragment(), OnIte
                         homeViewModel.insertUser(toUser)
                         homeViewModel.insertUser(fromUser)
                         homeViewModel.users
+
+
+                        val current = LocalDateTime.now()
+
+                        val formatter = DateTimeFormatter.ofPattern("HH:mm\nyyyy-MM-dd")
+                        val currentTime = current.format(formatter)
+                        transaction.receiver = toUser.name
+                        transaction.sender = fromUser.name
+                        transaction.currentTime = currentTime
+                        transaction.amount = balance
+
+                        historyViewModel.insertTransaction(transaction)
                         dismiss()
 
                         findNavController().navigate(R.id.navigation_home)
