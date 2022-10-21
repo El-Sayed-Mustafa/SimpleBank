@@ -150,22 +150,27 @@ class CustomDialogFragment(private val fromUser: User) : DialogFragment(), OnIte
                         Toast.LENGTH_SHORT)
                         .show()
                 }
-                if (toUser.id != fromUser.id && balance.isNotEmpty()) {
-                    transaction.receiverBalance = toUser.balance
-                    transaction.senderBalance = fromUser.balance
+                var Sender = fromUser.balance.toFloat()
 
-                    var Sender = fromUser.balance.toFloat()
-                    Sender -= balance.toFloat()
-                    fromUser.balance = Sender.toString()
-                    var Receiver = toUser.balance.toFloat()
-                    Receiver += balance.toFloat()
-                    toUser.balance = Receiver.toString()
+                transaction.receiverBalance = toUser.balance
+                transaction.senderBalance = fromUser.balance
+                Sender -= balance.toFloat()
+                var Receiver = toUser.balance.toFloat()
+                Receiver += balance.toFloat()
+                if (toUser.id != fromUser.id && balance.isNotEmpty()) {
+
                     if (Sender < 0) {
                         Toast.makeText(requireContext(),
                             "${fromUser.name} doesn't have enough money ",
                             Toast.LENGTH_SHORT)
                             .show()
-                    } else {
+                        getReceiver(receiver)
+                    }
+                    if(Sender>=0) {
+
+                        fromUser.balance = Sender.toString()
+
+                        toUser.balance = Receiver.toString()
                         homeViewModel.insertUser(toUser)
                         homeViewModel.insertUser(fromUser)
                         homeViewModel.users
