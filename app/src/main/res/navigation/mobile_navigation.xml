@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.example.simplebank.ui.history.NotificationsFragment"
+        android:name="com.example.simplebank.ui.history.HistoryFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" >
         <action
