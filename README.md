@@ -14,7 +14,7 @@
 <ol>
     <li>Clone the repository to your local machine using the following command:
 <pre>
-git clone https://github.com/<el0sayed-mustafa>/SimpleBank.git
+git clone https://github.com/<el-sayed-mustafa>/SimpleBank.git
 </pre>
     </li>
     <li>Open the project in Android Studio</li>
